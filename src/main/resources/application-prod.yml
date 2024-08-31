@@ -21,6 +21,11 @@ spring:
     name: gateway    
   cloud:
     gateway:
+      routes:
+        - id: clientes
+          uri: https://clientes-production-9948.up.railway.app
+          predicates:
+            - Path=/clientes/**
       httpclient:
         connect-timeout: 5000  # Conexão em milissegundos (ajustar conforme necessário)
         response-timeout: 30000 # Tempo de resposta em milissegundos
