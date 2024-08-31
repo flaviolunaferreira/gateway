@@ -4,7 +4,7 @@ server:
 ## Classic Eureka configuration
 eureka:
   instance:
-    preferIpAddress: true
+    preferIpAddress: false
     hostname: ${HOSTNAME:localhost}
     
   client:
@@ -21,6 +21,9 @@ spring:
     name: gateway    
   cloud:
     gateway:
+      httpclient:
+        connect-timeout: 5000  # Conexão em milissegundos (ajustar conforme necessário)
+        response-timeout: 30000 # Tempo de resposta em milissegundos
       discovery:
         locator:
           enabled: true
